@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
+import java.util.List;
 
 
 @RestController
@@ -24,6 +24,20 @@ public class CategoryController {
         return ResponseEntity.status(HttpStatus.CREATED).body(savedCategory);
 
     }
+@GetMapping
+    public List<CategoryDTO> getAllCategories(){
+        return categoryService.getAllCategories();
+
+}
+
+@GetMapping("/{id}")
+public CategoryDTO getCategoryById(@PathVariable long id){
+     return  categoryService.getCategoryById(id);
+    }
+@DeleteMapping("/{id}")
+public String deleteCategory(@PathVariable Long id){
+return categoryService.deleteCategory(id);
+}
 
 
 }

@@ -25,4 +25,18 @@ public class CategoryService {
         return CategoryMapper.toCategoryDTO(category);
 
     }
+
+    public List<CategoryDTO> getAllCategories(){
+        return categoryRepository.findAll().stream().map(CategoryMapper::toCategoryDTO).toList();
+
+    }
+    public CategoryDTO getCategoryById(Long id){
+       Category category= categoryRepository.findById(id)
+               .orElseThrow(()-> new RuntimeException("category not found"));
+    return CategoryMapper.toCategoryDTO(category);
+    }
+    public String deleteCategory(Long id){
+        categoryRepository.deleteById(id);
+        return "Category "+id+" deleted";
+    }
 }
