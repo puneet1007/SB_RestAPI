@@ -15,7 +15,7 @@ Key Features :
 Tech Stack :  
 
 Java 17 ,
-Spring Boot 3.17 ,
+Spring Boot 3.47 ,
 Spring Data JPA ,
 Spring Security ,
 Spring test ,
